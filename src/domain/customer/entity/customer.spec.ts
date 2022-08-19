@@ -1,17 +1,34 @@
+import NotificationError from "../../@shared/notification/notification.error";
 import { Address } from "../value-object/address";
 import { Customer } from "./customer"
 
 describe("customer unit tests", () => {
   it("should throw error when id is empty", () => {
+    // expect(() => {
+    //   new Customer("", "Jhon");
+    // }).toThrowError("Id is required");
     expect(() => {
       new Customer("", "Jhon");
-    }).toThrowError("Id is required");
+    }).toThrowError(new NotificationError([
+      {
+        message: "Id is required",
+        context: "customer"
+      }
+    ]));
   })
 
   it("should throw error when name is empty", () => {
+    // expect(() => {
+    //   new Customer("123", "");
+    // }).toThrowError("Name is required");
     expect(() => {
       new Customer("123", "");
-    }).toThrowError("Name is required");
+    }).toThrowError(new NotificationError([
+      {
+        message: "Name is required",
+        context: "customer"
+      }
+    ]));
   })
 
   it("should change name", () => {
@@ -50,7 +67,12 @@ describe("customer unit tests", () => {
       //Act
       customer.activate();
       //Assert
-    }).toThrowError("address is mandatory to activate a customer")
+    }).toThrowError(new NotificationError([
+      {
+        message: "address is mandatory to activate a customer",
+        context: "customer"
+      }
+    ]))
   })
 
   it("should add reward points", () => {
