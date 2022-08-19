@@ -1,5 +1,6 @@
 import Entity from "../../@shared/entity/entity.abstract";
 import NotificationError from "../../@shared/notification/notification.error";
+import CustomerValidatorFactory from "../factory/customer.validator.factory";
 import { Address } from "../value-object/address";
 
 //sempre deve se auto-validar
@@ -38,6 +39,7 @@ export class Customer extends Entity {
   }
 
   validate() {
+    CustomerValidatorFactory.create().validate(this)
     // if (this.id.length === 0) {
     //   this.notification.addError({
     //     context: "customer",
