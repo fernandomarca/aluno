@@ -31,6 +31,21 @@ describe("customer unit tests", () => {
     ]));
   })
 
+  it("should throw error when name and id are empty", () => {
+    expect(() => {
+      new Customer("", "");
+    }).toThrowError(new NotificationError([
+      {
+        message: "Id is required",
+        context: "customer"
+      },
+      {
+        message: "Name is required",
+        context: "customer"
+      }
+    ]));
+  })
+
   it("should change name", () => {
     //Arrange
     const customer = new Customer("123", "Jhon");
