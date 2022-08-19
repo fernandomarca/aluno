@@ -74,4 +74,6 @@ describe("E2E test for customer", () => {
     expect(customer2.address.street).toBe("Street 2");
 
   })
+
+
 })
