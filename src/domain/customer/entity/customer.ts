@@ -38,18 +38,18 @@ export class Customer extends Entity {
   }
 
   validate() {
-    if (this.id.length === 0) {
-      this.notification.addError({
-        context: "customer",
-        message: "Id is required"
-      })
-    }
-    if (this._name.length === 0) {
-      this.notification.addError({
-        context: "customer",
-        message: "Name is required"
-      })
-    }
+    // if (this.id.length === 0) {
+    //   this.notification.addError({
+    //     context: "customer",
+    //     message: "Id is required"
+    //   })
+    // }
+    // if (this._name.length === 0) {
+    //   this.notification.addError({
+    //     context: "customer",
+    //     message: "Name is required"
+    //   })
+    // }
   }
   //intensão de negócio
   changeName(name: string) {
